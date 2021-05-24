@@ -1,0 +1,90 @@
+<ion-header>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-back-button></ion-back-button>
+      </ion-buttons>
+      <ion-title>
+        EvaluateGIN
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+<ion-content>
+    <form [formGroup]="acquisitionForm" (ngSubmit)="submit()">
+        <ion-item>
+            <ion-label position="stacked">GIN</ion-label>
+            <ionic-selectable formControlName="spiritID"
+                              [shouldStoreItemValue]="true"
+                              [canSearch]="true"
+                              itemValueField="id"
+                              itemTextField="name"
+                              [items]="spirits">
+            </ionic-selectable>
+        </ion-item>
+        <ion-item>
+            <ion-label position="stacked">Aroma</ion-label>
+            <ionic-rating-component #rating
+                                    activeColor="#ff0000"
+                                    defaultColor="#aaaaaa"
+                                    readonly="false"
+                                    (ratingChanged)="onAromaRatingChange($event)"
+                                    formControlName="aroma">
+            </ionic-rating-component>
+        </ion-item>
+        <ion-item>
+            <ion-label position="stacked">Finish</ion-label>
+            <ionic-rating-component #rating
+                                    activeColor="#ff0000"
+                                    defaultColor="#aaaaaa"
+                                    readonly="false"
+                                    (ratingChanged)="onFinishRatingChange($event)"
+                                    formControlName="finish">
+            </ionic-rating-component>
+        </ion-item>
+        <ion-item>
+            <ion-label position="stacked">Taste</ion-label>
+            <ionic-rating-component #rating
+                                    activeColor="#ff0000"
+                                    defaultColor="#aaaaaa"
+                                    readonly="false"
+                                    (ratingChanged)="onTasteRatingChange($event)"
+                                    formControlName="taste">
+            </ionic-rating-component>
+        </ion-item>
+        <ion-item>
+            <ion-label position="stacked">Visual Appeal</ion-label>
+            <ionic-rating-component #rating
+                                    activeColor="#ff0000"
+                                    defaultColor="#aaaaaa"
+                                    readonly="false"
+                                    (ratingChanged)="onVisualAppealRatingChange($event)"
+                                    formControlName="visualAppeal">
+            </ionic-rating-component>
+        </ion-item>
+        <ion-item>
+            <ion-label position="stacked">Overall Enjoyment</ion-label>
+            <ionic-rating-component #rating
+                                    activeColor="#ff0000"
+                                    defaultColor="#aaaaaa"
+                                    readonly="false"
+                                    (ratingChanged)="onOverallEnjoymentRatingChange($event)"
+                                    formControlName="overallEnjoyment">
+            </ionic-rating-component>
+        </ion-item>
+        <ion-item>
+            <ion-label position="stacked">Comments</ion-label>
+            <ion-textarea rows="6" cols="20" placeholder="Enter any comments here..." formControlName="comments"></ion-textarea>
+        </ion-item>
+
+        <ion-button *ngIf="id" (click)="delete()" type="button" expand="block" class="ion-padding-horizontal ion-margin-vertical" color="danger">
+            Delete
+        </ion-button>
+
+        <ion-button type="submit" expand="block" class="ion-padding-horizontal ion-margin-vertical"
+                    [disabled]="!acquisitionForm.valid">
+            Save
+        </ion-button>
+    </form>
+
+</ion-content>
+  

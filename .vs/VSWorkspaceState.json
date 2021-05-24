@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\pages",
+    "\\src\\app\\pages\\acquisitions",
+    "\\src\\app\\pages\\introduction",
+    "\\src\\app\\pages\\pinterest-layout",
+    "\\src\\app\\pages\\spirits",
+    "\\src\\app\\services",
+    "\\src\\theme"
+  ],
+  "SelectedNode": "\\src\\global.scss",
+  "PreviewInSolutionExplorer": false
+}

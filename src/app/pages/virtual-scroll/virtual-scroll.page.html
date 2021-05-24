@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/snippets"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Virtual Scroll
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-virtual-scroll [items]="users" approxItemHeight="70px" [headerFn]="separateLetter">
+ 
+    <ion-item-divider *virtualHeader="let header" color="secondary">
+      <b>{{ header }}</b>
+    </ion-item-divider>
+ 
+    <ion-item *virtualItem="let user;">
+      <ion-avatar slot="start">
+        <ion-img [src]="user.picture.medium"></ion-img>
+      </ion-avatar>
+      <ion-label>
+        <h2 text-capitalize>{{ user.name?.first }} {{ user.name?.last }}</h2>
+        <p>{{ user.email }}</p>
+      </ion-label>
+    </ion-item>
+    
+  </ion-virtual-scroll>
+</ion-content>

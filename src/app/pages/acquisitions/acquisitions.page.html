@@ -1,0 +1,43 @@
+<ion-header>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-back-button></ion-back-button>
+      </ion-buttons>
+      <ion-title>
+        CollectGIN
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+<ion-content>
+
+    <ion-searchbar showCancelButton="focus"></ion-searchbar>
+    <ion-list>
+        <!--ion-item *ngFor="let item of items | async" [routerLink]="[item.id]"-->
+        <ion-item *ngFor="let item of items | async" [routerLink]="[item.id]">
+            <ion-thumbnail item-start>
+                <img src="assets/spirits/{{ item.spirit.image }}" />
+            </ion-thumbnail>
+            <ion-label>
+                <h2>{{ item.spirit.name }}</h2>
+            </ion-label>
+            <ionic-rating-component #rating
+                                    activeColor="#ff0000"
+                                    defaultColor="#aaaaaa"
+                                    readonly="false">
+            </ionic-rating-component>
+        </ion-item>
+    </ion-list>
+
+    <ion-item *ngIf="(items | async)?.length === 0">
+        <h2>Looks like you have no bottles in your CollectGIN. Click the "+" below to add your first bottle!</h2>
+    </ion-item>
+
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button [routerLink]="['null']">
+            <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+
+</ion-content>
+  

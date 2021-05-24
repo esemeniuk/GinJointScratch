@@ -1,0 +1,23 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>
+            GINfo
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <form [formGroup]="spiritForm">
+        <ion-item>
+            <ion-label position="stacked">Name</ion-label>
+            <ion-input formControlName="name"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="stacked">Producer</ion-label>
+            <ion-input formControlName="producer"></ion-input>
+        </ion-item>
+    </form>
+</ion-content>

@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/snippets"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Parallax Image
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content appParallaxHeader [scrollEvents]="true">
+ 
+  <!-- Your background image -->
+  <div class="parallax-image" [style.background-image]="'url(' + myImagePath + ')'"></div>
+ 
+  <div class="main">
+    <!-- Dummy content -->
+    <ion-list>
+      <ion-item *ngFor="let i of [].constructor(30)">
+        Dummy Entry
+      </ion-item>
+    </ion-list>
+  </div>
+ 
+</ion-content>
